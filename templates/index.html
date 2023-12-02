@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>IRIS Species</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+    />
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script
+            src="https://kit.fontawesome.com/6d56012fea.js"
+            crossorigin="anonymous"
+    ></script>
+    <style>
+        .container {
+            font-family: "Montserrat", sans-serif;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form-section {
+            width: 45%;
+        }
+
+        .result-section {
+            width: 45%;
+        }
+
+        i {
+            color: green;
+        }
+
+        input[type="number"] {
+            width: 90%;
+            border-radius: 10px;
+            -moz-appearance: textfield;
+        }
+
+        #species {
+            font-weight: 700;
+        }
+
+        .result {
+            font-size: larger;
+        }
+
+        .result-content p {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body style="background-color: rgba(205,255,229,0.64)">
+<div class="container">
+    <form action="/predict" class="form-group form-section" method="post">
+        <h1>IRIS Species <i class="fa-solid fa-leaf"></i></h1>
+        <div class="mb-3">
+            <label for="sepal_length" class="form-label">Sepal Length</label>
+            <input type="number" step="any" class="form-control" id="sepal_length" required
+                   placeholder="Enter Sepal Length" name="Sepal_Length"/>
+        </div>
+        <div class="mb-3">
+            <label for="sepal_width" class="form-label">Sepal width</label>
+            <input type="number" step="any" class="form-control" id="sepal_width" required
+                   placeholder="Enter Sepal Width" name="Sepal_Width"/>
+        </div>
+        <div class="mb-3">
+            <label for="petal_length" class="form-label">Petal Length</label>
+            <input type="number" step="any" class="form-control" id="petal_length" required
+                   placeholder="Enter Petal Length" name="Petal_Length"/>
+        </div>
+        <div class="mb-3">
+            <label for="petal_width" class="form-label">Petal Width</label>
+            <input type="number" step="any" class="form-control" id="petal_width" required
+                   placeholder="Enter Petal Width" name="Petal_Width"/>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+    <div class="result result-section">
+        <h2>Result <i class="fa-solid fa-scroll"></i></h2>
+        <div class="result-content">
+            <p>Class: <span id="species">{{prediction}}</span></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
